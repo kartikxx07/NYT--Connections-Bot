@@ -1,1 +1,1 @@
-
+This code contains the frontend logic and backend logic for the clone of the famous New York Times Game- Connections. In the game you have to make the best 4 groups of 4 words that you can make. The maximum number of times you make that mistake is only 4. In the backend logic of this game I am trying to use NLP and Information Theory to train a model to train a model to always get the best 4 groups of 4 words.
