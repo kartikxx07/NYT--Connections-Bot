@@ -9,6 +9,8 @@ import {
   isGameDataEquivalent,
   isGuessesFromGame,
 } from "../../lib/game-helpers";
+import { analyzeWordGroups, validateWordGroup, getHints, sendGameData, getCurrentGameAnswers } from "../../services/gameApi";
+
 export const GameStatusContext = React.createContext();
 
 function GameStatusProvider({ children }) {
@@ -45,8 +47,63 @@ function GameStatusProvider({ children }) {
   const [isGameOver, setIsGameOver] = React.useState(false);
   const [isGameWon, setIsGameWon] = React.useState(false);
   const [guessCandidate, setGuessCandidate] = React.useState([]);
+  const [isAnalyzing, setIsAnalyzing] = React.useState(false);
+  const [analysisResults, setAnalysisResults] = React.useState(null);
+  const [hints, setHints] = React.useState(null);
 
   const numMistakesUsed = submittedGuesses.length - solvedGameData.length;
+
+  // Send game data to backend when component mounts
+  React.useEffect(() => {
+    const sendDataToBackend = async () => {
+      try {
+        await sendGameData(gameData);
+        console.log('Game data sent to backend successfully');
+      } catch (error) {
+        console.error('Failed to send game data to backend:', error);
+      }
+    };
+    
+    sendDataToBackend();
+  }, [gameData]);
+
+  // Function to analyze current game state
+  const analyzeCurrentGame = async () => {
+    try {
+      setIsAnalyzing(true);
+      const allWords = gameData.flatMap(category => category.words);
+      const results = await analyzeWordGroups(allWords);
+      setAnalysisResults(results);
+    } catch (error) {
+      console.error('Error analyzing game:', error);
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
+  // Function to validate a guess
+  const validateGuess = async (words) => {
+    try {
+      const result = await validateWordGroup(words);
+      return result;
+    } catch (error) {
+      console.error('Error validating guess:', error);
+      return { isValid: false };
+    }
+  };
+
+  // Function to get hints
+  const getGameHints = async () => {
+    try {
+      const allWords = gameData.flatMap(category => category.words);
+      const result = await getHints(allWords, solvedGameData);
+      setHints(result);
+      return result;
+    } catch (error) {
+      console.error('Error getting hints:', error);
+      return null;
+    }
+  };
 
   // use effect to check if game is won
   React.useEffect(() => {
@@ -68,6 +125,8 @@ function GameStatusProvider({ children }) {
     saveGameStateToLocalStorage(gameState);
   }, [submittedGuesses]);
 
+  const answers = await getCurrentGameAnswers(gameData);
+
   return (
     <GameStatusContext.Provider
       value={{
@@ -80,6 +139,12 @@ function GameStatusProvider({ children }) {
         setSubmittedGuesses,
         guessCandidate,
         setGuessCandidate,
+        isAnalyzing,
+        analysisResults,
+        hints,
+        analyzeCurrentGame,
+        validateGuess,
+        getGameHints,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { shuffleGameData } from "../../lib/game-helpers";
 import GameGrid from "../GameGrid";
 import NumberOfMistakesDisplay from "../NumberOfMistakesDisplay";
@@ -13,6 +13,7 @@ import { GameStatusContext } from "../../providers/GameStatusProvider";
 import GameControlButtonsPanel from "../GameControlButtonsPanel";
 
 import ViewResultsModal from "../modals/ViewResultsModal";
+import { getPredictedGroups } from "../../services/gameApi";
 
 function Game() {
   const { gameData, categorySize, numCategories } =
@@ -26,6 +27,18 @@ function Game() {
   const [isEndGameModalOpen, setisEndGameModalOpen] = React.useState(false);
   const [gridShake, setGridShake] = React.useState(false);
   const [showConfetti, setShowConfetti] = React.useState(false);
+
+  // Send current game words to backend for prediction on mount
+  useEffect(() => {
+    const words = gameData.flatMap(category => category.words);
+    getPredictedGroups(words)
+      .then(response => {
+        console.log("Predicted groups:", response);
+      })
+      .catch(error => {
+        console.error("Error fetching predicted groups:", error);
+      });
+  }, [gameData]);
 
   // use effect to update Game Grid after a row has been correctly solved
   React.useEffect(() => {
