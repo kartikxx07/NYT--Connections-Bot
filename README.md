@@ -106,7 +106,7 @@ Note: Metrics are indicative and may vary based on dataset size and server load.
 Contributions are welcome! Fork the repository, create a feature branch, and submit a pull request with improvements.
 
 **Author:** Kartikay Luthra  
-**Contact:** LinkedIn | Email
+**Contact:** https://www.linkedin.com/in/kartikay-luthra-656592229/ | kartikluthra2020@gmail.com
 
 ## ⚡ Tech Stack
 
