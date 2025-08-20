@@ -71,6 +71,7 @@ bash
 Copy
 Edit
 npm run dev
+```
 
 ## 🎯 Features
 Generate connections between words using NYT datasets.
