@@ -5,7 +5,7 @@
 ![NumPy](https://img.shields.io/badge/NumPy-2.3.0-orange?logo=numpy)
 ![Pandas](https://img.shields.io/badge/Pandas-2.3.0-blue?logo=pandas)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.7.1-red?logo=pytorch)
-![Transformers](https://img.shields.io/badge/Transformers-4.52.4-purple?logo=transformers
+![Transformers](https://img.shields.io/badge/Transformers-4.52.4-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 A web application that generates word connections using the New York Times datasets. The project leverages NLP techniques to find semantic relationships between words and presents them via an interactive frontend with a FastAPI backend.
@@ -13,63 +13,35 @@ A web application that generates word connections using the New York Times datas
 ## 🗂 Project Structure
 
 news-sentiment-pipeline/
+├── backend/
+│   ├── app/
+│   │   └── __pycache__/
+│   ├── api/
+│   │   ├── __pycache__/
+│   │   └── routes.py
+│   ├── models/
+│   │   ├── __pycache__/
+│   │   └── word_connection_model.py
+│   ├── services/
+│   │   ├── __pycache__/
+│   │   └── data_processor.py
+│   ├── main.py
+│   └── requirements.txt
+├── docs/
+│   └── instructions-gif-connections.gif
+├── public/
+│   └── favicon.png
+├── src/
+├── .gitignore
+├── .postcssrc
+├── LICENSE
+├── README.md
+├── components.json
+├── jsconfig.json
+├── package-lock.json
+├── package.json
+└── tailwind.config.js
 
--   backend/
-    
-    -   app/
-        
-        -   **pycache**/
-            
-    -   api/
-        
-        -   **pycache**/
-            
-        -   routes.py
-            
-    -   models/
-        
-        -   **pycache**/
-            
-        -   word\_connection\_model.py
-            
-    -   services/
-        
-        -   **pycache**/
-            
-        -   data\_processor.py
-            
-    -   main.py
-        
-    -   requirements.txt
-        
--   docs/
-    
-    -   instructions-gif-connections.gif
-        
--   public/
-    
-    -   favicon.png
-        
--   src/
-    
--   .gitignore
-    
--   .postcssrc
-    
--   LICENSE
-    
--   README.md
-    
--   components.json
-    
--   jsconfig.json
-    
--   package-lock.json
-    
--   package.json
-    
--   tailwind.config.js
-    
 
 ## 🚀 Getting Started
 
