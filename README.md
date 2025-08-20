@@ -1,4 +1,12 @@
 # 🧠 NYT Connections Bot
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0-lightgrey?logo=fastapi)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.3.3-teal?logo=tailwind-css)
+![NumPy](https://img.shields.io/badge/NumPy-2.3.0-orange?logo=numpy)
+![Pandas](https://img.shields.io/badge/Pandas-2.3.0-blue?logo=pandas)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.7.1-red?logo=pytorch)
+![Transformers](https://img.shields.io/badge/Transformers-4.52.4-purple?logo=transformers
+![License](https://img.shields.io/badge/license-MIT-green)
 
 A web application that generates word connections using the New York Times datasets. The project leverages NLP techniques to find semantic relationships between words and presents them via an interactive frontend with a FastAPI backend.
 
