@@ -13,34 +13,34 @@ A web application that generates word connections using the New York Times datas
 ## 🗂 Project Structure
 
 news-sentiment-pipeline/
-├── backend/
-│   ├── app/
-│   │   └── __pycache__/
-│   ├── api/
-│   │   ├── __pycache__/
-│   │   └── routes.py
-│   ├── models/
-│   │   ├── __pycache__/
-│   │   └── word_connection_model.py
-│   ├── services/
-│   │   ├── __pycache__/
-│   │   └── data_processor.py
-│   ├── main.py
-│   └── requirements.txt
-├── docs/
-│   └── instructions-gif-connections.gif
-├── public/
-│   └── favicon.png
-├── src/
-├── .gitignore
-├── .postcssrc
-├── LICENSE
-├── README.md
-├── components.json
-├── jsconfig.json
-├── package-lock.json
-├── package.json
-└── tailwind.config.js
+- backend/
+  - app/
+    - __pycache__/
+  - api/
+    - __pycache__/
+    - routes.py
+  - models/
+    - __pycache__/
+    - word_connection_model.py
+  - services/
+    - __pycache__/
+    - data_processor.py
+  - main.py
+  - requirements.txt
+- docs/
+  - instructions-gif-connections.gif
+- public/
+  - favicon.png
+- src/
+- .gitignore
+- .postcssrc
+- LICENSE
+- README.md
+- components.json
+- jsconfig.json
+- package-lock.json
+- package.json
+- tailwind.config.js
 
 
 ## 🚀 Getting Started
